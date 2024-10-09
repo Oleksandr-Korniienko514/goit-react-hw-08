@@ -1,0 +1,25 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.listItem {
+  width: 200px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #333;
+}
+
+.link {
+  text-decoration: none;
+}

@@ -1,0 +1,14 @@
+.nav {
+  padding: 15px;
+  background-color: #333;
+}
+
+.link {
+  margin-right: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.activeLink {
+  color: orange;
+}
