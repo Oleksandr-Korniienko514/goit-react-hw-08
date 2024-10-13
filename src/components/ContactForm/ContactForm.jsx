@@ -26,7 +26,7 @@ const ContactForm = () => {
     const validateNumber = (number) => {
         const numberRegex = /^[0-9+\-() ]+$/;
         if (number.length < 4) {
-            return 'Name must be at least 4 letters';
+            return 'Number must be at least 4 letters';
         }
         if (!numberRegex.test(number)) {
             return 'Phone number can only contain numbers and +, -, (), spaces';
