@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from '../../redux/contactsSlice';
-import { nanoid } from 'nanoid';
+import { useDispatch } from 'react-redux';
+import { addContact } from '../../redux/contactsOps';
 import styles from './ContactForm.module.css';
 
 const ContactForm = () => {
     const dispatch = useDispatch();
-    const contacts = useSelector((state) => state.contacts.items);
-
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
     const [errors, setErrors] = useState({ name: '', number: '' });
 
     const validateName = (name) => {
-        const nameRegex = /^[A-Za-zА-Яа-яЁёІіЇїЄє]+$/;
+        const nameRegex = /^[A-Za-zА-Яа-яЁёІіЇїЄє ]+$/;
         if (name.length < 2) {
             return 'Name must be at least 2 letters';
         }
@@ -24,7 +21,7 @@ const ContactForm = () => {
     };
 
     const validateNumber = (number) => {
-        const numberRegex = /^[0-9+\-() ]+$/;
+        const numberRegex = /^[0-9+\-()]+$/;
         if (number.length < 2) {
             return 'Number must be at least 2 letters';
         }
@@ -45,7 +42,7 @@ const ContactForm = () => {
             return;
         }
 
-        dispatch(addContact({ id: nanoid(), name, number }));
+        dispatch(addContact({ name, number }));
         setName('');
         setNumber('');
         setErrors({ name: '', number: '' });
@@ -57,21 +54,18 @@ const ContactForm = () => {
                 Name:
                 <input
                     type="text"
-                    name="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Name"
                     className={styles.input}
                     required
                 />
-                {errors.name && <p className={styles.error}>{errors.name}</p>}
+                {errors.name && <p>{errors.name}</p>}
             </label>
-
-            <label className={styles.label}>
+            <label>
                 Number:
                 <input
                     type="tel"
-                    name="number"
                     value={number}
                     onChange={(e) => setNumber(e.target.value)}
                     placeholder="Number"
@@ -80,8 +74,7 @@ const ContactForm = () => {
                 />
                 {errors.number && <p className={styles.error}>{errors.number}</p>}
             </label>
-
-            <button type="submit" className={styles.button}>Add contact</button>
+            <button className={styles.button} type="submit">Add contact</button>
         </form>
     );
 };
