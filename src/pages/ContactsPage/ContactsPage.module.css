@@ -1,0 +1,15 @@
+.contactsPage {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #3e8e41; /* Зеленый цвет */
+}
+
+.loading {
+    text-align: center;
+    color: #ff9800; /* Оранжевый цвет для загрузки */
+}

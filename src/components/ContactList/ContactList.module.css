@@ -1,38 +1,23 @@
-.list {
-  list-style: none;
-  padding: 0;
-   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 40px;
-  max-width: 400px; 
-  margin: 50px auto; 
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
+.contactList {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0;
 }
 
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  margin-bottom: 8px;
-  background-color: #fff;
-  
+.contactList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.deleteButton {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.deleteButton:hover {
-  background-color: #cc0000;
+.contactList li:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }

@@ -11,9 +11,9 @@ const Contact = ({ contact }) => {
     };
 
     return (
-        <li>
+        <li className={styles.contact}>
             {contact.name}: {contact.number}
-            <button onClick={handleDelete}>Delete</button>
+            <button className={styles.button} onClick={handleDelete}>Delete</button>
         </li>
     );
 };
