@@ -1,0 +1,42 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #515b69;
+    gap: 30px;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #4b5563;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-radius: 8px;
+}
+
+.link svg {
+    font-size: 1.5rem;
+    color: #2563eb;
+    transition: transform 0.3s ease;
+}
+
+
+.link-active {
+    color: #1f2937;
+    background-color: #d1d5db;
+}
+
+.link:hover {
+    color: #1f2937;
+    background-color: #e5e7eb;
+}
+
+.link:hover svg {
+    transform: scale(1.2);
+}

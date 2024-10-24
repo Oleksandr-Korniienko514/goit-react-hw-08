@@ -1,23 +1,27 @@
-.contactList {
-    list-style: none;
-    padding: 0;
-    margin: 40px 0;
-}
 
-.contactList li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    margin-bottom: 15px;
+.wrapper {
+    padding: 20px;
     background-color: #ffffff;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s, box-shadow 0.3s;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
 }
 
-.contactList li:hover {
-    background-color: #f1f1f1;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+
+.contactList {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+
+.noContacts {
+    color: #e74c3c; 
+    font-size: 1.2rem;
+    text-align: center; 
+    margin-top: 20px;
+    font-weight: 500;
 }

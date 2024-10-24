@@ -1,10 +1,19 @@
-import React from 'react';
+import { NavLink } from "react-router-dom";
+import s from "./HomePage.module.css";
 
 const HomePage = () => {
     return (
-        <div>
-            <h1>Welcome to the Phonebook App</h1>
-            <p>Your personal phonebook to manage contacts.</p>
+        <div className={s.hero}>
+            <div className={s.heroOverlay}></div>
+            <div className={s.heroContent}>
+                <h1 className={s.title}>Hello there</h1>
+                <p className={s.description}>
+                    Welcome to the site that will help you keep your contacts, start filling it out now
+                </p>
+                <NavLink to="/contacts">
+                    <button className={s.getStartedButton}>Get Started</button>
+                </NavLink>
+            </div>
         </div>
     );
 };

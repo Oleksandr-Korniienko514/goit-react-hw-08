@@ -1,27 +1,25 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from '../../redux/contacts/operations';
-import { selectContacts, selectLoading, selectError } from '../../redux/contacts/selectors';
-import ContactForm from '../../components/ContactForm/ContactForm';
-import ContactList from '../../components/ContactList/ContactList';
+import { useSelector } from "react-redux";
+import ContactForm from "../../components/ContactForm/ContactForm";
+import ContactList from "../../components/ContactList/ContactList";
+import SearchBox from "../../components/SearchBox/SearchBox";
+import { selectIsError, selectIsLoading } from "../../redux/contacts/selectors";
+import s from "./ContactsPage.module.css";
 
 const ContactsPage = () => {
-    const dispatch = useDispatch();
-    const contacts = useSelector(selectContacts);
-    const loading = useSelector(selectLoading);
-    const error = useSelector(selectError);
-
-    useEffect(() => {
-        dispatch(fetchContacts());
-    }, [dispatch]);
+    const loading = useSelector(selectIsLoading);
+    const error = useSelector(selectIsError);
 
     return (
-        <div>
-            <h1>Contacts</h1>
-            {loading && <p>Loading...</p>}
-            {error && <p>{error}</p>}
+        <div className={s.container}>
             <ContactForm />
-            <ContactList contacts={contacts} />
+            <SearchBox />
+            {loading && (
+                <h2 className={s.loadingMessage}>
+                    <span className={s.spinner}></span>
+                </h2>
+            )}
+            {error && <h2 className={s.errorMessage}>Error...</h2>}
+            <ContactList />
         </div>
     );
 };

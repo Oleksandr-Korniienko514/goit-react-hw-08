@@ -1,9 +1,9 @@
-/* src/index.css */
-
 body {
   font-family: sans-serif;
+   min-height: 100vh;
   line-height: 1.5;
-  background-image: url(./components/img/Grey-Desktop-Wallpaper.jpg);
+  /* background-image: url(./components/img/Grey-Desktop-Wallpaper.jpg); */
+  background: linear-gradient(to bottom right, #2563eb, #7c3aed);
 }
 
 h1,

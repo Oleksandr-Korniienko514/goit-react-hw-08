@@ -1,15 +1,36 @@
-.contactsPage {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+.container {
+    padding: 4rem;
+    margin: 40px auto;
+    max-width: 800px;
+    background-color: #e7e8eb;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+
+.loadingMessage {
     text-align: center;
-    color: #3e8e41; /* Зеленый цвет */
+    margin-top: 2rem;
 }
 
-.loading {
+.errorMessage {
     text-align: center;
-    color: #ff9800; /* Оранжевый цвет для загрузки */
+    color: red;
+    margin-top: 2rem;
+}
+
+.spinner {
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    border: 0.25rem solid #f3f4f6;
+    border-top-color: #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
 }

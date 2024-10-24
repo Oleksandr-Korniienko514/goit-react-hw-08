@@ -1,28 +1,31 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contacts/operations';
-import { selectContacts } from '../../redux/contacts/selectors';
-import { selectFilter } from '../../redux/filters/selectors';
-import styles from './ContactList.module.css';
+import { useDispatch, useSelector } from "react-redux";
+import Contact from "../Contact/Contact";
+import s from "./ContactList.module.css";
+import { useEffect } from "react";
+
+import { fetchContacts } from "../../redux/contacts/operations";
+import { selectFilteredContacts } from "../../redux/contacts/selectors";
 
 const ContactList = () => {
+    const filteredContacts = useSelector(selectFilteredContacts);
     const dispatch = useDispatch();
-    const contacts = useSelector(selectContacts);
-    const filter = useSelector(selectFilter);
 
-    const filteredContacts = contacts.filter((contact) =>
-        contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    useEffect(() => {
+        dispatch(fetchContacts());
+    }, [dispatch]);
 
     return (
-        <ul className={styles.contactList}>
-            {filteredContacts.map(({ id, name, number }) => (
-                <li key={id}>
-                    <p>{name}: {number}</p>
-                    <button onClick={() => dispatch(deleteContact(id))}>Delete</button>
-                </li>
-            ))}
-        </ul>
+        <div className={s.wrapper}>
+            {filteredContacts.length > 0 ? (
+                <ul className={s.contactList}>
+                    {filteredContacts.map((item) => (
+                        <Contact key={item.id} {...item} />
+                    ))}
+                </ul>
+            ) : (
+                <p className={s.noContacts}>No contacts found</p>
+            )}
+        </div>
     );
 };
 

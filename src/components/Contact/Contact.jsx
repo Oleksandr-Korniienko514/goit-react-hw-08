@@ -1,19 +1,33 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contactsOps';
-import styles from './Contact.module.css';
+import { FaUser } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
+import s from "./Contact.module.css";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contacts/operations";
 
-const Contact = ({ contact }) => {
+const Contact = ({ id, name, number }) => {
     const dispatch = useDispatch();
 
     const handleDelete = () => {
-        dispatch(deleteContact(contact.id));
+        if (window.confirm(`Are you sure you want to delete ${name}?`)) {
+            dispatch(deleteContact(id));
+        }
     };
 
     return (
-        <li className={styles.contact}>
-            {contact.name}: {contact.number}
-            <button className={styles.button} onClick={handleDelete}>Delete</button>
+        <li className={s.list}>
+            <div className={s.textContainer}>
+                <span className={s.contactInfo}>
+                    <FaUser className={s.icon} />
+                    {name}
+                </span>
+                <span className={s.contactInfo}>
+                    <FaPhoneAlt className={s.icon} />
+                    {number}
+                </span>
+            </div>
+            <button className={s.deleteButton} onClick={handleDelete}>
+                Delete
+            </button>
         </li>
     );
 };

@@ -1,15 +1,59 @@
-.homePage {
-    text-align: center;
-    padding: 50px;
-    background-color: #f7f7f7;
+.hero {
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom right, #2563eb, #7c3aed);
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    position: relative;
 }
 
-h1 {
-    color: #3e8e41; 
+
+.heroOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 
-p {
-    color: #555;
-    font-size: 1.2rem;
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    text-align: center;
+}
+
+
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+
+.description {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: #d1d5db;
+}
+
+
+.getStartedButton {
+    background-color: #2563eb;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.getStartedButton:hover {
+    background-color: #1d4ed8;
 }
